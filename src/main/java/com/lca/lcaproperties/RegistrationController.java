@@ -16,7 +16,7 @@ public class RegistrationController {
     @Autowired
     private User user;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = { "http://localhost:4200", "https://lca-properties.herokuapp.com" })
     @PostMapping("send-mail") String emailRequest (@RequestBody String emailRequest) {
 
 //        public String send () {

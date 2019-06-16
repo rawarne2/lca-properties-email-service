@@ -29,7 +29,7 @@ public class MailService {
 
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(user.getEmailAddress());
-        mail.setSubject("Testing Mail API");
+        mail.setSubject("Maintenance Request");
         mail.setText(user.getMessage());
 
 
