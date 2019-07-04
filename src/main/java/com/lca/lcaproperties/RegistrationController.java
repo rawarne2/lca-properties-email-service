@@ -19,8 +19,6 @@ public class RegistrationController {
     @CrossOrigin(origins = { "http://localhost:4200", "https://lca-properties.herokuapp.com" })
     @PostMapping("send-mail") String emailRequest (@RequestBody String emailRequest) {
 
-//        public String send () {
-
 
             this.user.setEmailAddress("lcallcproperties@gmail.com");
             this.user.setMessage(emailRequest);
@@ -31,7 +29,6 @@ public class RegistrationController {
                 System.out.println(mailException);
             }
             return "Congratulations! Your mail has been send to the user.";
-//        }
     }
 
     @RequestMapping("send-mail-attachment")
