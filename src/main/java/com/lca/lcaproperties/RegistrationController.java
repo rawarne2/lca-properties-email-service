@@ -1,11 +1,9 @@
 package com.lca.lcaproperties;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.*;
 
-import javax.mail.MessagingException;
 
 @RestController
 public class RegistrationController {
@@ -18,31 +16,14 @@ public class RegistrationController {
 
     @CrossOrigin(origins = { "http://localhost:4200", "https://lca-properties.herokuapp.com" })
     @PostMapping("send-mail") String emailRequest (@RequestBody String emailRequest) {
-
-
-            this.user.setEmailAddress("lcallcproperties@gmail.com");
-            this.user.setMessage(emailRequest);
-
-            try {
-                mailService.sendEmail(this.user);
-            } catch (MailException mailException) {
-                System.out.println(mailException);
-            }
-            return "Congratulations! Your mail has been send to the user.";
-    }
-
-    @RequestMapping("send-mail-attachment")
-    public String sendWithAttachment() throws MessagingException {
-
-
-        this.user.setEmailAddress("lcallcproperties@gmail.com"); //Receiver's email address
-
-
+        System.out.print("starting email request");
         try {
-            mailService.sendEmailWithAttachment(this.user);
+            System.out.print("starting email request try");
+            mailService.sendEmail(this.user, emailRequest);
+            return "Congratulations! Your mail has been send to the user.";
         } catch (MailException mailException) {
-            System.out.println(mailException);
+            System.out.printf("Email failed to send with this exception: %s", mailException);
+            return "Email request failed.";
         }
-        return "Congratulations! Your mail has been send to the user.";
     }
 }
