@@ -99,7 +99,7 @@
 						<manifest>
 
 							<!-- give full qualified name of your main class-->
-							<mainClass>com.lca.lcaproperties.LcaPropertiesApplication</mainClass>
+							<mainClass>com.lca.lcaproperties</mainClass>
 
 						</manifest>
 					</archive>
